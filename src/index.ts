@@ -1,8 +1,9 @@
-import {AxesHelper, OrthographicCamera} from 'three'
+import {AxesHelper } from 'three'
 
 import { renderer } from './renderer'
 import { scene } from './scene'
 import { ExtendedCamera, homeCamera, frontCamera, rightCamera, topCamera } from './cameras'
+import { bottomPoints, bottomPlate, topPoints, topPlate } from './mesh'
 
 const root = document.body
 
@@ -23,8 +24,19 @@ function updateScene() {
         scene.add(axesHelper)
     }
 
+    function insertMeshes(): void {
+        scene
+            .add(bottomPoints)
+            .add(bottomPlate)
+            .add(topPoints)
+            .add(topPlate)
+
+    }
+
     clearScene()
     insertAxesHelper()
+    insertMeshes()
+
 }
 
 function render() {
@@ -45,3 +57,4 @@ function animate() {
 
 init()
 animate()
+

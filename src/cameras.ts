@@ -7,7 +7,7 @@ export interface ExtendedCamera {
 }
 
 function createCamera(posX: number, posY: number, posZ: number, look: Vector3, viewport: Vector4): ExtendedCamera {
-    const camera = new OrthographicCamera(winWidth/-2, winWidth/2, winHeight/2, winHeight/-2, 1, 1000)
+    const camera = new OrthographicCamera(winWidth/-4, winWidth/4, winHeight/4, winHeight/-4, 1, 1000)
     camera.position.set(posX, posY, posZ)
     camera.lookAt(look)
 
