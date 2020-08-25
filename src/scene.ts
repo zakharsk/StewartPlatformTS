@@ -44,8 +44,6 @@ function updateScene() {
     clearScene()
     insertAxesHelper()
     insertMeshes()
-
-    console.log(topPoints.quaternion)
 }
 
 export { scene, updateScene }
