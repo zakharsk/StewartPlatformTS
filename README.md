@@ -1,6 +1,6 @@
-# stewart-platform-ts
+# UncoGames Stewart Platform
 
-Empty project.
+An emulator for learning vector algebra and quaternions before creating a real model.
 
 ## Building and running on localhost
 
