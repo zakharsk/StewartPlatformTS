@@ -12,3 +12,11 @@ canvas {
     bottom: 0;
     transform:translate(-50%);
 }
+
+#q {
+    position: absolute;
+    left: 50%;
+    top: 1em;
+    transform:translate(-50%);
+    color: #F8F9F9;
+}
