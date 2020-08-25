@@ -8,7 +8,7 @@ const bottomCoords = [
     [L/2 - l/2, 0, r0 - h], // C
     [L/2 - l, 0, r0],       // D
     [-L/2 + l, 0, r0],      // E
-    [-L/2 + l/2, 0, r0 - h]  // F
+    [-L/2 + l/2, 0, r0 - h] // F
 ]
 const topCoords = [
     [-L/2 + l, H, -r0],         // A
@@ -16,7 +16,7 @@ const topCoords = [
     [L/2 - l/2, H, -r0 + h],    // C
     [l/2, H, R - h],            // D
     [-l/2, H, R - h],           // E
-    [-L/2 + l/2, H, -r0 + h]     // F
+    [-L/2 + l/2, H, -r0 + h]    // F
 ]
 
 let bottomPoints: Vector3[] = []

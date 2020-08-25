@@ -1,9 +1,5 @@
-function toRad(angle: number): number {
-    return angle * (180 / Math.PI)
-}
-
 export const
-    winHeight = window.innerHeight - 4,
+    winHeight = window.innerHeight,
     winWidth = window.innerWidth,
     H = 150,
     L = 210,
