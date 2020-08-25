@@ -7,28 +7,26 @@ Empty project.
 First install dependencies:
 
 ```sh
-npm install
+yarn
 ```
 
 To run in hot module reloading mode:
 
 ```sh
-npm start
+yarn start
 ```
 
 To create a production build:
 
 ```sh
-npm run build-prod
-```
-
-## Running
-
-```sh
-node dist/bundle.js
+yarn build-prod
 ```
 
 ## Credits
 
-Made with [createapp.dev](https://createapp.dev/)
+Made with
+[createapp.dev](https://createapp.dev/),
+[TypeScript](https://www.typescriptlang.org/),
+[three.js](https://threejs.org/),
+[dat.GUI](https://github.com/dataarts/dat.gui)
 
