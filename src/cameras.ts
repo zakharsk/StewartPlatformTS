@@ -19,10 +19,10 @@ function createCamera(posX: number, posY: number, posZ: number, look: Vector3, v
 const camAxisDistance = 300;
 
 const look = {
-    home: new Vector3(0, H/2, 0),
-    front: new Vector3(0, H/2, 0),
-    right: new Vector3(0, H/2, 0),
-    top: new Vector3(0, H/2, 0)
+    home: new Vector3(0, -H/2, 0),
+    front: new Vector3(0, -H/2, 0),
+    right: new Vector3(0, -H/2, 0),
+    top: new Vector3(0, -H/2, 0)
 }
 
 const viewport = {
@@ -34,6 +34,6 @@ const viewport = {
 
 export const
     homeCamera = createCamera(camAxisDistance, camAxisDistance, camAxisDistance, look.home, viewport.home),
-    frontCamera = createCamera(0, H/2, camAxisDistance, look.front, viewport.front),
-    rightCamera = createCamera(camAxisDistance, H/2, 0, look.right, viewport.right),
+    frontCamera = createCamera(0, -H/2, camAxisDistance, look.front, viewport.front),
+    rightCamera = createCamera(camAxisDistance, -H/2, 0, look.right, viewport.right),
     topCamera = createCamera(0, camAxisDistance, 0, look.top, viewport.top)

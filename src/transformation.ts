@@ -1,5 +1,4 @@
 import { Quaternion, Vector3 } from 'three'
-
 import { Controls } from './gui'
 
 function deg2rad(deg: number): number {
