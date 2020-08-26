@@ -13,49 +13,55 @@ interface Controls {
 function createGUI(controls: Controls, callback: () => void): GUI {
     const gui = new GUI({ autoPlace: false, closeOnTop: true })
 
-    gui
+    const xFolder = gui.addFolder('X')
+
+    xFolder
         .add(controls, 'xMove', -50, 50, 1)
-        .name('Move X')
+        .name('Move')
         .onChange(function () {
             callback()
         })
         .listen()
 
-    gui
+    xFolder
         .add(controls, 'xRotation', -45, 45, 1)
-        .name('Rotation X')
+        .name('Rotation')
         .onChange(function () {
             callback()
         })
         .listen()
 
-    gui
+    const yFolder = gui.addFolder('Y')
+
+    yFolder
         .add(controls, 'yMove', -50, 50, 1)
-        .name('Move Y')
+        .name('Move')
         .onChange(function () {
             callback()
         })
         .listen()
 
-    gui
+    yFolder
         .add(controls, 'yRotation', -45, 45, 1)
-        .name('Rotation Y')
+        .name('Rotation')
         .onChange(function () {
             callback()
         })
         .listen()
 
-    gui
+    const zFolder = gui.addFolder('Z')
+
+    zFolder
         .add(controls, 'zMove', -50, 50, 1)
-        .name('Move Z')
+        .name('Move')
         .onChange(function () {
             callback()
         })
         .listen()
 
-    gui
+    zFolder
         .add(controls, 'zRotation', -45, 45, 1)
-        .name('Rotation Z')
+        .name('Rotation')
         .onChange(function () {
             callback()
         })

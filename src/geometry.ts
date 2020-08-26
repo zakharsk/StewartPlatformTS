@@ -1,13 +1,19 @@
-import { BufferGeometry } from 'three'
+import {BufferGeometry, Quaternion, Vector3} from 'three'
 
-import { bottomPoints, topPoints } from './points'
+import { getPoints } from './points'
 
-export const
-    bottomGeometry = new BufferGeometry().setFromPoints(bottomPoints),
-    topGeometry = new BufferGeometry().setFromPoints(topPoints),
-    aActuatorGeometry = new BufferGeometry().setFromPoints([bottomPoints[0], topPoints[0]]),
-    bActuatorGeometry = new BufferGeometry().setFromPoints([bottomPoints[1], topPoints[1]]),
-    cActuatorGeometry = new BufferGeometry().setFromPoints([bottomPoints[2], topPoints[2]]),
-    dActuatorGeometry = new BufferGeometry().setFromPoints([bottomPoints[3], topPoints[3]]),
-    eActuatorGeometry = new BufferGeometry().setFromPoints([bottomPoints[4], topPoints[4]]),
-    fActuatorGeometry = new BufferGeometry().setFromPoints([bottomPoints[5], topPoints[5]])
+function getGeometry(move: Vector3, rotation: Quaternion){
+    const points = getPoints(move, rotation)
+    return {
+        bottom: new BufferGeometry().setFromPoints(points.bottom),
+        top: new BufferGeometry().setFromPoints(points.top),
+        aActuator: new BufferGeometry().setFromPoints([points.bottom[0], points.top[0]]),
+        bActuator: new BufferGeometry().setFromPoints([points.bottom[1], points.top[1]]),
+        cActuator: new BufferGeometry().setFromPoints([points.bottom[2], points.top[2]]),
+        dActuator: new BufferGeometry().setFromPoints([points.bottom[3], points.top[3]]),
+        eActuator: new BufferGeometry().setFromPoints([points.bottom[4], points.top[4]]),
+        fActuator: new BufferGeometry().setFromPoints([points.bottom[5], points.top[5]])
+    }
+}
+
+export { getGeometry }

@@ -1,16 +1,23 @@
-import { Points, LineLoop, Line } from 'three'
+import { Points, LineLoop, Line, Vector3, Quaternion, Object3D } from 'three'
 
-import { bottomGeometry, topGeometry, aActuatorGeometry, bActuatorGeometry, cActuatorGeometry, dActuatorGeometry, eActuatorGeometry, fActuatorGeometry } from './geometry'
+import { getGeometry } from './geometry'
 import { pointMaterial, plateMaterial, actuatorMaterial } from './materials'
 
-export const
-    bottomPoints = new Points(bottomGeometry, pointMaterial),
-    bottomPlate = new LineLoop(bottomGeometry, plateMaterial),
-    topPoints = new Points(topGeometry, pointMaterial),
-    topPlate = new LineLoop(topGeometry, plateMaterial),
-    aActuator = new Line(aActuatorGeometry, actuatorMaterial),
-    bActuator = new Line(bActuatorGeometry, actuatorMaterial),
-    cActuator = new Line(cActuatorGeometry, actuatorMaterial),
-    dActuator = new Line(dActuatorGeometry, actuatorMaterial),
-    eActuator = new Line(eActuatorGeometry, actuatorMaterial),
-    fActuator = new Line(fActuatorGeometry, actuatorMaterial)
+function getMeshes(move: Vector3, rotation: Quaternion): Object3D[] {
+    const geometry = getGeometry(move, rotation)
+
+    return [
+        new Points(geometry.bottom, pointMaterial),
+        new LineLoop(geometry.bottom, plateMaterial),
+        new Points(geometry.top, pointMaterial),
+        new LineLoop(geometry.top, plateMaterial),
+        new Line(geometry.aActuator, actuatorMaterial),
+        new Line(geometry.bActuator, actuatorMaterial),
+        new Line(geometry.cActuator, actuatorMaterial),
+        new Line(geometry.dActuator, actuatorMaterial),
+        new Line(geometry.eActuator, actuatorMaterial),
+        new Line(geometry.fActuator, actuatorMaterial)
+    ]
+}
+
+export { getMeshes }

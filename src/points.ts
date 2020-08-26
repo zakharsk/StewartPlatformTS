@@ -1,4 +1,4 @@
-import { Vector3 } from 'three'
+import {Quaternion, Vector3} from 'three'
 
 import { l, R, h, L, r0, H } from './sizes'
 
@@ -19,16 +19,25 @@ const topCoords = [
     [-L/2 + l/2, H, -r0 + h]    // F
 ]
 
-let bottomPoints: Vector3[] = []
-for (let cs of bottomCoords) {
-    let pointVector = new Vector3().fromArray(cs)
-    bottomPoints.push(pointVector)
+function getPoints(move: Vector3, rotation: Quaternion) {
+    let bottom: Vector3[] = []
+    for (let cs of bottomCoords) {
+        let pointVector = new Vector3().fromArray(cs)
+        bottom.push(pointVector)
+    }
+
+    let top: Vector3[] = []
+    for (let cs of topCoords) {
+        let pointVector = new Vector3().fromArray(cs)
+        pointVector.add(move)
+        pointVector.applyQuaternion(rotation)
+        top.push(pointVector)
+    }
+
+    return {
+        bottom,
+        top
+    }
 }
 
-let topPoints: Vector3[] = []
-for (let cs of topCoords) {
-    let pointVector = new Vector3().fromArray(cs)
-    topPoints.push(pointVector)
-}
-
-export { bottomPoints, topPoints }
+export { getPoints }

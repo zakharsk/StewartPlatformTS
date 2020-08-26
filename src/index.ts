@@ -1,10 +1,10 @@
 import { renderer, render } from './renderer'
 import { updateScene } from './scene'
 import { createGUI } from './gui'
-import { calculateQuaternion } from './quaternion'
+import { calculateMoveVector, calculateRotationQuaternion } from './transformation'
 
 const root = document.body
-const qSpan = document.createElement('span')
+const transformationLabelSpan = document.createElement('span')
 
 const controls = {
     xMove: 0,
@@ -20,23 +20,35 @@ const controls = {
         controls.yRotation = 0
         controls.zMove = 0
         controls.zRotation = 0
-        updateQuaternion()
+        updateTransformation()
     }
 }
 
-function updateQuaternion() {
-    const quaternion = calculateQuaternion(controls)
-    qSpan.textContent = `Q = 
-    ${quaternion.x.toString()}x + 
-    ${quaternion.y.toString()}y + 
-    ${quaternion.z.toString()}z +
-    ${quaternion.w.toString()}w
+let moveVector = calculateMoveVector(controls)
+let rotationQuaternion = calculateRotationQuaternion(controls)
+
+function updateTransformation() {
+    moveVector = calculateMoveVector(controls)
+    rotationQuaternion = calculateRotationQuaternion(controls)
+
+    transformationLabelSpan.innerHTML = `
+    Move V = [
+    ${moveVector.x.toString()},
+    ${moveVector.y.toString()},
+    ${moveVector.z.toString()}
+    ]
+    <br/>
+    Rotation Q = 
+    ${rotationQuaternion.x.toString()}x + 
+    ${rotationQuaternion.y.toString()}y + 
+    ${rotationQuaternion.z.toString()}z +
+    ${rotationQuaternion.w.toString()}w
     `
 }
 
 function init() {
     function insertGUI(): void {
-        const gui = createGUI(controls, updateQuaternion)
+        const gui = createGUI(controls, updateTransformation)
         const guiDiv = document.createElement('div')
         guiDiv.id = 'gui'
         guiDiv.appendChild(gui.domElement)
@@ -45,22 +57,22 @@ function init() {
         gui.open()
     }
 
-    function insertQuaternionLabel(): void {
-        const qDiv = document.createElement('div')
-        qDiv.id = 'q'
+    function insertTransformationLabel(): void {
+        const transformationLabelDiv = document.createElement('div')
+        transformationLabelDiv.id = 'q'
 
-        qDiv.append(qSpan)
-        root.appendChild(qDiv)
+        transformationLabelDiv.append(transformationLabelSpan)
+        root.appendChild(transformationLabelDiv)
     }
 
     insertGUI()
-    insertQuaternionLabel()
-    updateQuaternion()
+    insertTransformationLabel()
+    updateTransformation()
     root.appendChild(renderer.domElement)
 }
 
 function animate() {
-    updateScene()
+    updateScene(moveVector, rotationQuaternion)
     render()
     requestAnimationFrame(animate)
 }
