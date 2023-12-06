@@ -79,4 +79,3 @@ function animate() {
 
 init()
 animate()
-
