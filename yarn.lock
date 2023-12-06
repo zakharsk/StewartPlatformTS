@@ -3504,6 +3504,11 @@ levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
+lil-gui@^0.19.1:
+  version "0.19.1"
+  resolved "https://registry.yarnpkg.com/lil-gui/-/lil-gui-0.19.1.tgz#5fb8fdb420afbf4d8fc7cbd0357a775e5dd9a484"
+  integrity sha512-9dbIg+UxS8RIROI6OH5gV2KrVE0Cn37bcLOQGF2GKN8ibTxDrUSLzzZfkQR82LnZsgs7DEZOOGfn3zhtd6hk0Q==
+
 lodash.clone@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.clone/-/lodash.clone-4.5.0.tgz#195870450f5a13192478df4bc3d23d2dea1907b6"

@@ -28,5 +28,5 @@ Made with
 [createapp.dev](https://createapp.dev/),
 [TypeScript](https://www.typescriptlang.org/),
 [three.js](https://threejs.org/),
-[dat.GUI](https://github.com/dataarts/dat.gui)
+[lil-gui](https://github.com/georgealways/lil-gui)
 

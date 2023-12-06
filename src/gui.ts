@@ -1,4 +1,4 @@
-import { GUI } from 'dat.gui'
+import { GUI } from 'lil-gui'
 
 interface Controls {
     xMove: number,
@@ -11,7 +11,7 @@ interface Controls {
 }
 
 function createGUI(controls: Controls, callback: () => void): GUI {
-    const gui = new GUI({ autoPlace: false, closeOnTop: true })
+    const gui = new GUI({ autoPlace: false, closeFolders: true })
 
     const xFolder = gui.addFolder('X')
 
