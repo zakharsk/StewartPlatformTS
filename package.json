@@ -11,17 +11,15 @@
     "build-prod": "parcel build src/index.html"
   },
   "dependencies": {
-    "dat.gui": "^0.7.9",
-    "lil-gui": "^0.19.1",
-    "three": "^0.159.0"
+    "lil-gui": "^0.21.0",
+    "three": "^0.181.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.5",
-    "@babel/preset-env": "^7.23.5",
-    "@types/dat.gui": "^0.7.12",
-    "@types/three": "^0.159.0",
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@types/three": "^0.181.0",
     "parcel-bundler": "^1.12.5",
-    "prettier": "^3.1.0",
-    "typescript": "^5.3.3"
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3"
   }
 }
